@@ -1,0 +1,177 @@
+Manifest-Version: 1.0
+
+Name: install.rdf
+Digest-Algorithms: MD5 SHA1
+MD5-Digest: z0GVr4AvnFG4v+e9Lb4gfA==
+SHA1-Digest: P/QyFedvpjB+GTfqBXSQbmervtQ=
+
+Name: chrome.manifest
+Digest-Algorithms: MD5 SHA1
+MD5-Digest: 6L4HSJOXcpAZQUGpqk3hjA==
+SHA1-Digest: P5L8ZJbilho3eVagge2tKSd6zNc=
+
+Name: chrome/content/html_esperanto.html
+Digest-Algorithms: MD5 SHA1
+MD5-Digest: 2iEZ8pn6UkJk0BXT0fmWCg==
+SHA1-Digest: Fw1JNhGqDzD6IIAFwwlhLdgds9M=
+
+Name: chrome/content/html_klavaro.html
+Digest-Algorithms: MD5 SHA1
+MD5-Digest: iB2MfMC4orP5nxgsnxcXhg==
+SHA1-Digest: YDPnUSMLf9E+iW75Kw6AUagCUg0=
+
+Name: chrome/content/html_klavoj.html
+Digest-Algorithms: MD5 SHA1
+MD5-Digest: uPGJ1gVojoxX+Jd0rWJDlA==
+SHA1-Digest: BhFgGEHCq783IL1JwHZ7LOYvGqk=
+
+Name: chrome/content/opcioj.css
+Digest-Algorithms: MD5 SHA1
+MD5-Digest: ljR9GwinInhqE9nUHs7ASg==
+SHA1-Digest: kDeTAZnIXY3i17ghUbMkOiB+nxk=
+
+Name: chrome/content/opcioj.js
+Digest-Algorithms: MD5 SHA1
+MD5-Digest: 0c8r8N3FhTC2xl5PAOMtEg==
+SHA1-Digest: dhqY9uAu0udiBYCL1neTrCPDl3Q=
+
+Name: chrome/content/opcioj.xul
+Digest-Algorithms: MD5 SHA1
+MD5-Digest: dBDLGfnnoYXsbOQIUG0REQ==
+SHA1-Digest: XDwwz9kLFtHCgLXI7hCLXqFIB0A=
+
+Name: chrome/content/preferoj.js
+Digest-Algorithms: MD5 SHA1
+MD5-Digest: v2nlgPKvyVxf6W0A/HL4/Q==
+SHA1-Digest: uGSzb2uCJZtg2gmEbjoxuNXJ0i0=
+
+Name: chrome/content/pri.xul
+Digest-Algorithms: MD5 SHA1
+MD5-Digest: AzH+OpbmEAO6Gy0U2D9ksg==
+SHA1-Digest: 3RTt/ZDBIYazoUWbqPKOUkpk+7s=
+
+Name: chrome/content/tajpu.js
+Digest-Algorithms: MD5 SHA1
+MD5-Digest: uWPFVASBLR4QMkSuQ0APJQ==
+SHA1-Digest: eM3TJbNYB8b8b9JKLDJyCs7ZXSM=
+
+Name: chrome/content/tajpuOverlayF.xul
+Digest-Algorithms: MD5 SHA1
+MD5-Digest: u3tmXKFBWKMDZy/Ms9DELQ==
+SHA1-Digest: ezGdLCEL4y0e+wFrkP0h8PyjIJg=
+
+Name: chrome/content/tajpuOverlayM.xul
+Digest-Algorithms: MD5 SHA1
+MD5-Digest: TfheWOuEM9MMFSIyrohYyg==
+SHA1-Digest: TYZ8ljMLQMLOejR2FsEE5vsa4/o=
+
+Name: chrome/content/tajpuOverlayR.xul
+Digest-Algorithms: MD5 SHA1
+MD5-Digest: 2lh2XtokVnZsQh9CwNIrGg==
+SHA1-Digest: 7X1L4lnUNJxJP43gBUxE8YA18z8=
+
+Name: chrome/content/tajpuOverlayT.xul
+Digest-Algorithms: MD5 SHA1
+MD5-Digest: kWCXbsxHowkAsofm2Ns5iw==
+SHA1-Digest: 4e4XUGW7+y14ggxIjmQdhgDiiBo=
+
+Name: chrome/content/tajpuOverlayV.xul
+Digest-Algorithms: MD5 SHA1
+MD5-Digest: 5XvapVtATAaK+BNqrh4GHQ==
+SHA1-Digest: WoLWWIL4Tt7oGoxx4vrD6dStd3U=
+
+Name: chrome/locale/da-DK/tajpu.dtd
+Digest-Algorithms: MD5 SHA1
+MD5-Digest: UO+s/zhDUXrrcwYfsfHHIA==
+SHA1-Digest: tcnImd2RbNCy7GhSuQ3gK9Lj9lE=
+
+Name: chrome/locale/de-DE/tajpu.dtd
+Digest-Algorithms: MD5 SHA1
+MD5-Digest: ox6gXUX5CgvMC/mrhgOTlQ==
+SHA1-Digest: 934EIPG7ZOVZ33M0ykXoRxHmbtE=
+
+Name: chrome/locale/en-US/tajpu.dtd
+Digest-Algorithms: MD5 SHA1
+MD5-Digest: 8jxFrhRDgMJSDdbxlAUUrg==
+SHA1-Digest: ZdtBpSZMXKi1EvQoKxYYHDrDTko=
+
+Name: chrome/locale/eo/tajpu.dtd
+Digest-Algorithms: MD5 SHA1
+MD5-Digest: r9JZfgbbsuSR9U5V8WjTuQ==
+SHA1-Digest: LptqVEjNlXOr0X9oCRnQAW+oyZw=
+
+Name: chrome/locale/es-AR/tajpu.dtd
+Digest-Algorithms: MD5 SHA1
+MD5-Digest: l/sB6IvC3beHO5jRd6Xt8g==
+SHA1-Digest: ZgE6xJI+QBaqUo1kavixNSeEnEA=
+
+Name: chrome/locale/es-ES/tajpu.dtd
+Digest-Algorithms: MD5 SHA1
+MD5-Digest: QeeG+7lsDsnyKdWPfdVJoA==
+SHA1-Digest: zgHOJ3B2bEYPMKcllJNJgvNA4rw=
+
+Name: chrome/locale/fr-FR/tajpu.dtd
+Digest-Algorithms: MD5 SHA1
+MD5-Digest: 2Tzz8AtjNz2N1l58lgflrg==
+SHA1-Digest: OEVWEtv8LF8ZODkI9Idt3Ndmu4I=
+
+Name: chrome/locale/he/tajpu.dtd
+Digest-Algorithms: MD5 SHA1
+MD5-Digest: 4GarSpn31XlNZeT4HCN8ow==
+SHA1-Digest: 4N4FubuJX2PX6I5Bi5ooHuqAcvI=
+
+Name: chrome/locale/hu-HU/tajpu.dtd
+Digest-Algorithms: MD5 SHA1
+MD5-Digest: J/K0ucvevzk4cMy2dqapRA==
+SHA1-Digest: 0bTx2/6nCAquMPf4KEpvVRG4PG0=
+
+Name: chrome/locale/it-IT/tajpu.dtd
+Digest-Algorithms: MD5 SHA1
+MD5-Digest: bJJGhY8d8nj4PwSvwIzyEw==
+SHA1-Digest: fjZdBu3W9U63ov3xyQPBUsRBaVE=
+
+Name: chrome/locale/ja-JP/tajpu.dtd
+Digest-Algorithms: MD5 SHA1
+MD5-Digest: 2Tzz8AtjNz2N1l58lgflrg==
+SHA1-Digest: OEVWEtv8LF8ZODkI9Idt3Ndmu4I=
+
+Name: chrome/locale/oc/tajpu.dtd
+Digest-Algorithms: MD5 SHA1
+MD5-Digest: HoKg9H9pPGXBBO+Q50zCNQ==
+SHA1-Digest: fxrffEPD9eD0VszU7IYLmvgtN7k=
+
+Name: chrome/locale/pl-PL/tajpu.dtd
+Digest-Algorithms: MD5 SHA1
+MD5-Digest: oPiQy/YzeFi1kOvWIDUaYA==
+SHA1-Digest: 0gx7Xc2/3cTJoeGaVDwswagwjyg=
+
+Name: chrome/locale/pt-BR/tajpu.dtd
+Digest-Algorithms: MD5 SHA1
+MD5-Digest: MtlketvjTLpBv1Ew/UgjOQ==
+SHA1-Digest: apafkGpnpiU7MDn6uPjd+ds+tj0=
+
+Name: chrome/locale/ru-RU/tajpu.dtd
+Digest-Algorithms: MD5 SHA1
+MD5-Digest: TVecvySfyhTu5IW2z/6Uog==
+SHA1-Digest: zB8oU16v0UuWo/hdcTb7zEQFR4Q=
+
+Name: chrome/locale/sr/tajpu.dtd
+Digest-Algorithms: MD5 SHA1
+MD5-Digest: WVJe8HkH2mN0jBA/AYL8ow==
+SHA1-Digest: 9jaKFJcPdFUv74KhzUAewZzzX54=
+
+Name: chrome/locale/sv-SE/tajpu.dtd
+Digest-Algorithms: MD5 SHA1
+MD5-Digest: 8eWCu2zxqoMHla91pvGF4Q==
+SHA1-Digest: WUr+w32ycogSgpoYjgiGsHJj7AM=
+
+Name: chrome/locale/uk-UA/tajpu.dtd
+Digest-Algorithms: MD5 SHA1
+MD5-Digest: OGXlEUkauHiRhW6XGZ3TkQ==
+SHA1-Digest: CQ4Ttg5rgaxjQBb+7kDo1VCD5zw=
+
+Name: chrome/skin/classic/tajpu.png
+Digest-Algorithms: MD5 SHA1
+MD5-Digest: qEOr1dP99LZxOtxW05aBfw==
+SHA1-Digest: yiZfA99/jCufaJ5GnyrlRpVPtHU=
+

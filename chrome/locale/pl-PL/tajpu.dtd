@@ -1,0 +1,18 @@
+<!ENTITY opcioj.registri "Zapisz">
+<!ENTITY opcioj.nuligi "Anuluj">
+<!ENTITY opcioj.enmeti "WSTAW">
+<!ENTITY opcioj.helpo "Aby uzyskać więcej informacji odwiedź">
+<!ENTITY opcioj.unu "Języki, które mają się pojawić w grupie abcTajpu w menu kontekstowym pól tekstowych">
+<!ENTITY opcioj.du "Określ kombinację klawiszy (np. Alt+F7), która ma dodawać znak diaktryczny do uprzednio wpisanego znaku">
+<!ENTITY opcioj.tri "Makra zdefiniowane przez użytkownika, nazwa wartość &#x7C;..., gdzie każde &#x25;u#### oznacza Unikod">
+<!ENTITY opcioj.kvar "Wybór kombinacji klawiszy, która będzie rozwijała marko tak samo, jak Ctrl+Alt+Shift+Insert">
+<!ENTITY opcioj.kvar.helpeto "Na przykład: jeżeli głównym klawiszem skrótu jest INSERT, wtedy e &apos; INSERT daje &#233;, a s m INSERT daje saluton mondo.">
+<!ENTITY menuo.klavaro "Klawiatura">
+<!ENTITY menuo.opcioj "Opcje">
+<!ENTITY menuo.helpo "Pomoc">
+<!ENTITY alirklavo.klavaro "K">
+<!ENTITY alirklavo.opcioj "O">
+<!ENTITY alirklavo.helpo "P">
+<!ENTITY pri.akcepti "OK">
+<!ENTITY pri.p "Projekt European Esperanto Union mający na celu wsparcie różnorodności i równości językowej.">
+<!ENTITY pri.s "Projekt wspiera European Language Day.">

@@ -1,0 +1,270 @@
+<?xml version='1.0' encoding='utf-8'?>
+<RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:em="http://www.mozilla.org/2004/em-rdf#">
+
+<Description about="urn:mozilla:install-manifest">
+	<em:id>{15a7ef52-8a77-426e-9e17-e21af257d7c8}</em:id>
+	<em:version>1.8.5.1-signed</em:version>
+	<em:type>2</em:type>
+	<em:name>abcTajpu</em:name>
+	<em:creator>Aaron Irvine</em:creator>
+	<em:optionsURL>chrome://tajpu/content/opcioj.xul</em:optionsURL>
+	<em:aboutURL>chrome://tajpu/content/pri.xul</em:aboutURL>
+	<em:iconURL>chrome://tajpu/skin/tajpu.png</em:iconURL>
+
+
+	<!-- por krozilo Fajrovulpo -->
+	<em:targetApplication>
+		<Description> 
+			<em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
+			<em:minVersion>18.0</em:minVersion>
+			<em:maxVersion>32.*</em:maxVersion>
+			<!-- Evitendas: 3.1b2 -->
+		</Description>
+	</em:targetApplication>
+
+	<!-- por poshtilo Tondrobirdo -->
+	<em:targetApplication> 
+		<Description>
+			<em:id>{3550f703-e582-4d05-9a08-453d09bdfdc6}</em:id>
+			<em:minVersion>18.0</em:minVersion>
+			<em:maxVersion>32.*</em:maxVersion>
+		</Description>
+	</em:targetApplication>
+
+	<!-- por ilaro SeaMonkey -->
+        <em:targetApplication>
+            <Description>
+                <em:id>{92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}</em:id>
+                <em:minVersion>2.0</em:minVersion>
+                <em:maxVersion>2.12.*</em:maxVersion>
+            </Description>
+        </em:targetApplication>
+
+
+	<!-- por krozilo Flock
+    <em:targetApplication>
+      <Description>
+        <em:id>{a463f10c-3994-11da-9945-000d60ca027b}</em:id>
+	    <em:minVersion>3.0.0</em:minVersion>
+	    <em:maxVersion>3.0.*</em:maxVersion>
+      </Description>
+    </em:targetApplication> 
+    -->
+
+	<!-- ne nun subtenata, sed espereble iam onte ja: Nvu/Kompozer
+	<em:targetApplication>
+	  <Description>
+		<em:id>{136c295a-4a5a-41cf-bf24-5cee526720d5}</em:id>
+		<em:minVersion>0.7</em:minVersion>
+		<em:maxVersion>1.0</em:maxVersion>
+	  </Description>
+  </em:targetApplication>
+  -->
+
+  <!-- por krozilo Feneko
+  Uzul-interfaco de Feneko 1.0 mem ne estas suficxe bona :-(
+	<em:targetApplication>
+		<Description>
+			<em:id>{a23983c0-fd0e-11dc-95ff-0800200c9a66}</em:id>
+			<em:minVersion>0.1</em:minVersion>
+			<em:maxVersion>1.0.*</em:maxVersion>
+		</Description>
+	</em:targetApplication>
+  -->
+
+        <!-- ne subtenata : Sunbird 
+    <em:targetApplication>
+      <Description>
+        <em:id>{718e30fb-e89b-41dd-9da7-e25a45638b28}</em:id>
+        <em:minVersion>0.3.1</em:minVersion>
+        <em:maxVersion>0.3.1</em:maxVersion>
+      </Description>
+    </em:targetApplication>
+    -->
+
+
+
+
+		<em:localized>
+		      <Description>
+				<em:locale>eo</em:locale>
+				<em:name>abcTajpu</em:name>
+				<em:description>a` b\ c^ -&gt; à β ĉ  (http://lingvo.org/abctajpu)</em:description>
+				<em:homepageURL>http://lingvo.org/abctajpu/</em:homepageURL>
+		      </Description>
+	      </em:localized>
+
+		<em:localized>
+		      <Description>
+				<em:locale>eo-EO</em:locale>
+				<em:name>abcTajpu</em:name>
+				<em:description>a` b\ c^ -&gt; à β ĉ  (http://lingvo.org/abctajpu)</em:description>
+				<em:homepageURL>http://lingvo.org/abctajpu/</em:homepageURL>
+		      </Description>
+	      </em:localized>
+
+		<em:localized>
+		      <Description>
+				<em:locale>en-US</em:locale>
+				<em:name>abcTajpu "a b c type-oo"</em:name>
+				<em:description>a` b\ c^ -&gt; à β ĉ  (http://lingvo.org/abctajpu)</em:description>
+				<em:homepageURL>http://lingvo.org/abctajpu/</em:homepageURL>
+		      </Description>
+	      </em:localized>
+	      
+		<em:localized>
+		      <Description>
+				<em:locale>fr-FR "a b c taille-pou"</em:locale>
+				<em:name>abcTajpu</em:name>
+				<em:description>a` b\ c^ -&gt; à β ĉ  (http://lingvo.org/abctajpu)</em:description>
+				<em:homepageURL>http://lingvo.org/abctajpu/</em:homepageURL>
+				<em:translator>myahoo (babelzilla, fr-FR)</em:translator>
+		      </Description>
+	      </em:localized>	      
+
+		<em:localized>
+		      <Description>
+				<em:locale>pl-PL</em:locale>
+				<em:name>abcTajpu</em:name>
+				<em:description>a` b\ c^ -&gt; à β ĉ  (http://lingvo.org/abctajpu)</em:description>
+				<em:homepageURL>http://lingvo.org/abctajpu/</em:homepageURL>
+				<em:translator>vatzec (babelzilla, pl-PL)</em:translator>
+		      </Description>
+	      </em:localized>	  
+
+		<em:localized>
+		      <Description>
+				<em:locale>it-IT</em:locale>
+				<em:name>abcTajpu</em:name>
+				<em:description>a` b\ c^ -&gt; à β ĉ  (http://lingvo.org/abctajpu)</em:description>
+				<em:homepageURL>http://lingvo.org/abctajpu/</em:homepageURL>
+				<em:translator>MatrixIsAllOver (babelzilla, it-IT)</em:translator>
+		      </Description>
+	      </em:localized>	
+
+		<em:localized>
+		      <Description>
+				<em:locale>pt-BR</em:locale>
+				<em:name>abcTajpu</em:name>
+				<em:description>a` b\ c^ -&gt; à β ĉ  (http://lingvo.org/abctajpu)</em:description>
+				<em:homepageURL>http://lingvo.org/abctajpu/</em:homepageURL>
+				<em:translator>raryelcsouza (babelzilla, pt-BR)</em:translator>
+		      </Description>
+	      </em:localized>	
+
+		<em:localized>
+		      <Description>
+				<em:locale>de-DE</em:locale>
+				<em:name>abcTajpu "a b c teip-u"</em:name>
+				<em:description>a` b\ c^ -&gt; à β ĉ  (http://lingvo.org/abctajpu)</em:description>
+				<em:homepageURL>http://lingvo.org/abctajpu/</em:homepageURL>
+				<em:translator>Archaeopteryx (babelzilla, de-DE)</em:translator>
+		      </Description>
+	      </em:localized>	
+
+		<em:localized>
+		      <Description>
+				<em:locale>es-ES</em:locale>
+				<em:name>abcTajpu</em:name>
+				<em:description>a` b\ c^ -&gt; à β ĉ  (http://lingvo.org/abctajpu)</em:description>
+				<em:homepageURL>http://lingvo.org/abctajpu/</em:homepageURL>
+				<em:translator>RigoNet (babelzilla, es-ES)</em:translator>
+		      </Description>
+	      </em:localized>	
+
+		<em:localized>
+		      <Description>
+				<em:locale>es-AR</em:locale>
+				<em:name>abcTajpu</em:name>
+				<em:description>a` b\ c^ -&gt; à β ĉ  (http://lingvo.org/abctajpu)</em:description>
+				<em:homepageURL>http://lingvo.org/abctajpu/</em:homepageURL>
+				<em:translator>Eduardo Leon (babelzilla, es-AR)</em:translator>
+		      </Description>
+	      </em:localized>	
+
+		<em:localized>
+		      <Description>
+				<em:locale>ru-RU</em:locale>
+				<em:name>abcTajpu</em:name>
+				<em:description>a` b\ c^ -&gt; à β ĉ  (http://lingvo.org/abctajpu)</em:description>
+				<em:homepageURL>http://lingvo.org/abctajpu/</em:homepageURL>
+				<em:translator>Sergey Larin (babelzilla, ru-RU)</em:translator>
+		      </Description>
+	      </em:localized>	
+
+		<em:localized>
+		      <Description>
+				<em:locale>da-DK</em:locale>
+				<em:name>abcTajpu</em:name>
+				<em:description>a` b\ c^ -&gt; à β ĉ  (http://lingvo.org/abctajpu)</em:description>
+				<em:homepageURL>http://lingvo.org/abctajpu/</em:homepageURL>
+				<em:translator>Wodak (babelzilla, da-DK)</em:translator>
+		      </Description>
+	      </em:localized>
+
+		<em:localized>
+		      <Description>
+				<em:locale>se-SV</em:locale>
+				<em:name>abcTajpu</em:name>
+				<em:description>a` b\ c^ -&gt; à β ĉ  (http://lingvo.org/abctajpu)</em:description>
+				<em:homepageURL>http://lingvo.org/abctajpu/</em:homepageURL>
+				<em:translator>awarnqvist (babelzilla, se-SV)</em:translator>
+		      </Description>
+	      </em:localized>		      
+
+		<em:localized>
+		      <Description>
+				<em:locale>sr</em:locale>
+				<em:name>abcTajpu</em:name>
+				<em:description>a` b\ c^ -&gt; à β ĉ  (http://lingvo.org/abctajpu)</em:description>
+				<em:homepageURL>http://lingvo.org/abctajpu/</em:homepageURL>
+				<em:translator>DakSrbija (babelzilla, sr)</em:translator>
+		      </Description>
+	      </em:localized>	
+
+		<em:localized>
+		      <Description>
+				<em:locale>hu-HU</em:locale>
+				<em:name>abcTajpu</em:name>
+				<em:description>a` b\ c^ -&gt; à β ĉ  (http://lingvo.org/abctajpu)</em:description>
+				<em:homepageURL>http://lingvo.org/abctajpu/</em:homepageURL>
+				<em:translator>dratini0 (babelzilla, hu)</em:translator>
+		      </Description>
+	      </em:localized>	
+
+		<em:localized>
+		      <Description>
+				<em:locale>he</em:locale>
+				<em:name>abcTajpu</em:name>
+				<em:description>a` b\ c^ -&gt; à β ĉ  (http://lingvo.org/abctajpu)</em:description>
+				<em:homepageURL>http://lingvo.org/abctajpu/</em:homepageURL>
+				<em:translator>barryoni (babelzilla, he)</em:translator>
+		      </Description>
+	      </em:localized>	
+
+		<em:localized>
+		      <Description>
+				<em:locale>oc</em:locale>
+				<em:name>abcTajpu</em:name>
+				<em:description>a` b\ c^ -&gt; à β ĉ  (http://lingvo.org/abctajpu)</em:description>
+				<em:homepageURL>http://lingvo.org/abctajpu/</em:homepageURL>
+				<em:translator>Cedric31 (babelzilla, oc)</em:translator>
+		      </Description>
+	      </em:localized>
+
+	      <em:localized>
+		      <Description>
+				<em:locale>uk-UA</em:locale>
+				<em:name>abcTajpu</em:name>
+				<em:description>a` b\ c^ -&gt; à β ĉ  (http://lingvo.org/abctajpu)</em:description>
+				<em:homepageURL>http://lingvo.org/abctajpu/</em:homepageURL>
+				<em:translator>Sappa (babelzilla, uk-UA)</em:translator>
+		      </Description>
+	      </em:localized>
+
+	      <!-- Kaj dankon al LewisR pri SeaMonkey -->
+	      <!-- Kaj dankon al to85343 pri Sanskrit IAST kaj Indic ISO 15919 -->
+
+</Description>
+
+</RDF>

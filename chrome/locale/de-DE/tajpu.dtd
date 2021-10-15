@@ -1,0 +1,19 @@
+<!ENTITY opcioj.registri "Speichern">
+<!ENTITY opcioj.nuligi "Abbrechen">
+<!ENTITY opcioj.enmeti "Einfügen-Taste">
+<!ENTITY opcioj.helpo "Weitere Informationen: ">
+<!ENTITY opcioj.unu "Sprachen, die im Kontextmenü neben dem abcTajpu-Eintrag erscheinen sollen">
+<!ENTITY opcioj.du "Tastaturkürzel aktivieren, z.B. Alt+F7 um ein Zirkumflex zum vorher eingefügten Buchstaben hinzuzufügen">
+<!ENTITY opcioj.tri "Benutzerdefinierte Makros, Name=Wert&#x7C;... &#x25;u#### kodiert ein Unicode-Zeichen">
+<!ENTITY opcioj.kvar "Legen Sie das primäre Tastaturkürzel fest, welches zusätzlich zur Tastenkombination &quot;Steuerung-Shift-Alt-Einfügen&quot; ein Makro ausführt">
+<!ENTITY opcioj.kvar.helpeto "Beispiel: Falls das primäre Tastaturkürzel F7 ist, dann erzeugt e &apos; F7 &#233;, und s m F7 wird unter Verwendung des Makros &apos;sm=saluton mondo|&apos; zu &apos;saluton mondo&apos; erweitert.">
+<!ENTITY menuo.klavaro "Tastatur">
+<!ENTITY menuo.opcioj "Einstellungen">
+<!ENTITY menuo.helpo "Hilfe">
+<!ENTITY alirklavo.klavaro "T">
+<!ENTITY alirklavo.opcioj "E">
+<!ENTITY alirklavo.helpo "H">
+<!ENTITY pri.akcepti "OK">
+<!ENTITY pri.p "Projekt der Europäischen Esperanto Union zur Förderung des Sprachenreichtums und der Sprachgleichberechtigung.">
+<!ENTITY pri.s "Zur Unterstützung des Europäischen Tages der Sprachen">
+

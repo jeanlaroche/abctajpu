@@ -1,0 +1,18 @@
+<!ENTITY opcioj.registri "Enregistrar">
+<!ENTITY opcioj.nuligi "Anullar">
+<!ENTITY opcioj.enmeti "Inser"> 
+<!ENTITY opcioj.helpo "Per mai d'informacions, anatz sus"> 
+<!ENTITY opcioj.unu "Lengas de far aparéisser dins lo menú contextual de tot camp de picada, prèp del menú generic d'abcTajpu"> 
+<!ENTITY opcioj.du "Acorchis de clavièr d'activar, per exemple Alt+F7 per apondre un accent circonflèxe a la darrièra letra picada"> 
+<!ENTITY opcioj.tri "Macros que pòdon èsser utilizadas, de tipe nom=valor|, ont tot %u#### designa la nòrma Unicode"> 
+<!ENTITY opcioj.kvar "Causissètz un acorchi de clavièr, en mai de Ctrl, Maj, Alt, Inser, per espandir una macro"> 
+<!ENTITY opcioj.kvar.helpeto "Per exemple, amb Inser coma acorchi, lo trio « e ' Inser » donarà « é », e « s m Inser » donarà « saluton mondo »."> 
+<!ENTITY menuo.klavaro "Clavièr"> 
+<!ENTITY menuo.opcioj "Opcions"> 
+<!ENTITY menuo.helpo "Ajuda"> 
+<!ENTITY alirklavo.klavaro "C">
+<!ENTITY alirklavo.opcioj "O">
+<!ENTITY alirklavo.helpo "A">
+<!ENTITY pri.akcepti "D'acòrdi"> 
+<!ENTITY pri.p "Projècte de l'Union europèu de l'Esperanto, pr'amor d'ajudar egalitat e diversitat a l'entorn de las lengas vivas."> 
+<!ENTITY pri.s "Amb lo supòrt de la Jornada europèa de las lengas."> 

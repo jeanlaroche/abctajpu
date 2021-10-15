@@ -1,0 +1,18 @@
+<!ENTITY opcioj.registri "Registri">
+<!ENTITY opcioj.nuligi "Nuligi">
+<!ENTITY opcioj.enmeti "ENMETI"> 
+<!ENTITY opcioj.helpo "Por pli da informoj vizitu"> 
+<!ENTITY opcioj.unu "Lingvoj apud abcTajpu en tajpuja kuntekstmenuo"> 
+<!ENTITY opcioj.du "Ebligu specialan agklavon, ekzemple alt-F7 por aldoni cirkumflekson"> 
+<!ENTITY opcioj.tri "Propraj makrooj, nomo=havo&#x7C;... kie sintakso &#x25;u#### signifas Unikodon"> 
+<!ENTITY opcioj.kvar "Kiu &#265;eneralan agklavon, aldone al reg-mag-alt-enmetu, por kompletigi makroon"> 
+<!ENTITY opcioj.kvar.helpeto "Ekzemple, se la &#285;enerala agklavo estas ENMETU, tiam e ' ENMETU donas: &#233;, kaj s m ENMETU donas: saluton mondo."> 
+<!ENTITY menuo.klavaro "Klavaro"> 
+<!ENTITY menuo.opcioj "Opcioj"> 
+<!ENTITY menuo.helpo "Helpo"> 
+<!ENTITY alirklavo.klavaro "K">
+<!ENTITY alirklavo.opcioj "O">
+<!ENTITY alirklavo.helpo "H">
+<!ENTITY pri.akcepti "Akcepti"> 
+<!ENTITY pri.p "Projekto de la E&#365;ropa Esperanto-Unio por helpi lingvajn diversecon kaj egalecon."> 
+<!ENTITY pri.s "Subtene al E&#365;ropa Tago de Lingvoj."> 

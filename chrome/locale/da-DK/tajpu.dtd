@@ -1,0 +1,18 @@
+<!ENTITY opcioj.registri "Gem">
+<!ENTITY opcioj.nuligi "Gem">
+<!ENTITY opcioj.enmeti "INSÆT">
+<!ENTITY opcioj.helpo "For mere information besøg">
+<!ENTITY opcioj.unu "Sprog skal vises i et inputfelt sammenhæng klikke på popup-menuen ved siden af den generiske abcTajpu menupunktet">
+<!ENTITY opcioj.du "Aktiver som en særlig hot keys, for eksempel Alt-F7 for at tilføje en accent cirkumfleks til det tidligere skrevet brev">
+<!ENTITY opcioj.tri "Bruger definerede makroer, name=value&amp;#x7C;... hvor nogen &#x25;u#### betyder Unicode">
+<!ENTITY opcioj.kvar "Valg af general hot key, i desuden control-shift-insert, til at udvide en macro">
+<!ENTITY opcioj.kvar.helpeto "For eksempel, hvis then generale hot key er INSERT, så giver e'INSERT &amp;#233;, og s m INSERT give saluton mondo.">
+<!ENTITY menuo.klavaro "Tastatur">
+<!ENTITY menuo.opcioj "Valg">
+<!ENTITY menuo.helpo "Hjælp">
+<!ENTITY alirklavo.klavaro "T">
+<!ENTITY alirklavo.opcioj "V">
+<!ENTITY alirklavo.helpo "H">
+<!ENTITY pri.akcepti "OK">
+<!ENTITY pri.p "Projekt for Den Europæiske Esperanto Union til at hjælpe sproglige mangfoldighed og ligestilling">
+<!ENTITY pri.s "Til støtte for European Language Dag.">

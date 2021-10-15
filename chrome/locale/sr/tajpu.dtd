@@ -1,0 +1,18 @@
+<!ENTITY opcioj.registri "Сачувај">
+<!ENTITY opcioj.nuligi "Откажи">
+<!ENTITY opcioj.enmeti "INSERT">
+<!ENTITY opcioj.helpo "Да бисте добили више информација, посетите">
+<!ENTITY opcioj.unu "Језици који се појављују приручном менију, поред оних који су иначе укључени у abcTajpu">
+<!ENTITY opcioj.du "Подесите пречице за тастатуру (на пример алт+Ф7 да бисте додали акценат на претходно откуцано слово)">
+<!ENTITY opcioj.tri "Макрои које је одредио корисник name=value|... где било које &#x25;u#### значи Уникôд">
+<!ENTITY opcioj.kvar "Бирање главне пречице за тастатуру, као додатак наредби ктрл+шифт+алт+инсерт, да бисте проширили макро">
+<!ENTITY opcioj.kvar.helpeto "На пример, ако је главна пречица INSERT, онда e ' INSERT даје é, а s m INSERT даје saluton mondo.">
+<!ENTITY menuo.klavaro "Тастатура">
+<!ENTITY menuo.opcioj "Опције">
+<!ENTITY menuo.helpo "Помоћ">
+<!ENTITY alirklavo.klavaro "T">
+<!ENTITY alirklavo.opcioj "O">
+<!ENTITY alirklavo.helpo "P">
+<!ENTITY pri.akcepti "У реду">
+<!ENTITY pri.p "Пројекат Европске уније есперанта, која поштује разноликости и једнакости.">
+<!ENTITY pri.s "Као знак подршке Европском дану језика.">

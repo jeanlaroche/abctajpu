@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="chrome://tajpu/content/opcioj.css" type="text/css"?>
+<!DOCTYPE overlay SYSTEM "chrome://tajpu/locale/tajpu.dtd">
+<!-- Ne redaktu permane -->
+<window class="dialog"
+	title="abcTajpu"
+	orient="vertical"
+	autostretch="always"
+	onload="tajpu_sharghu_opciojn(); sizeToContent(); var kiu; try{kiu=tajpu_preferoj.legu_askian_preferajhon('rapidklavo')}catch(e){kiu='INSERT';} var s=document.getElementById('formularo__tujtraduku'); s.selectedItem=document.getElementById('formularo__tujtraduku'+'_'+kiu);"
+	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+  <script type="application/x-javascript" src="chrome://global/content/nsUserSettings.js"/>
+  <script type="application/x-javascript" src="chrome://global/content/globalOverlay.js"/>
+  <script type="application/x-javascript" src="preferoj.js"/>
+  <script type="application/x-javascript" src="opcioj.js"/>
+
+<vbox flex="1" style="overflow:auto" >
+	<hbox>
+	<vbox>
+	<!-- LINGVOJ -->
+	<groupbox flex="1" orient="horizontal">
+		<caption label="&opcioj.unu;" />
+			<groupbox flex="1" orient="horizontal">
+				<checkbox id="formularo__menuo" label="abcTajpu"/>	
+			</groupbox>
+<box orient="vertical" align="left">
+<checkbox id="formularo__af" label="Afrikaans"/>
+<checkbox id="formularo__ar" label="&#1575;&#1604;&#1593;&#1585;&#1576;&#1610;&#1577;"/>
+<checkbox id="formularo__be" label="&#1041;&#1077;&#1083;&#1072;&#1088;&#1091;&#1089;&#1082;&#1072;&#1103;"/>
+<checkbox id="formularo__br" label="Brezhoneg"/>
+<checkbox id="formularo__ca" label="Català"/>
+<checkbox id="formularo__cs" label="Čeština"/>
+<checkbox id="formularo__cy" label="Cymraeg"/>
+<checkbox id="formularo__da" label="Dansk"/>
+<checkbox id="formularo__de" label="Deutsch"/>
+<checkbox id="formularo__el" label="Ελληνικά"/>
+<checkbox id="formularo__e2" label="Ελληνικά (2)"/>
+</box><box orient="vertical" align="left">
+<checkbox id="formularo__eo" label="Esperanto"/>
+<checkbox id="formularo__es" label="Español"/>
+<checkbox id="formularo__et" label="Eesti"/>
+<checkbox id="formularo__eu" label="Euskara"/>
+<checkbox id="formularo__fi" label="Suomi"/>
+<checkbox id="formularo__fr" label="Français"/>
+<checkbox id="formularo__ga" label="Gaeilge"/>
+<checkbox id="formularo__gl" label="Galego"/>
+<checkbox id="formularo__he" label="&#1506;&#1489;&#1512;&#1497;&#1514;"/>
+<checkbox id="formularo__hi" label="&#x939;&#x93f;&#x928;&#x94d;&#x926;&#x940;"/>
+<checkbox id="formularo__hr" label="Hrvatski"/>
+</box><box orient="vertical" align="left">
+<checkbox id="formularo__hu" label="Magyar"/>
+<checkbox id="formularo__i5" label="ISO 15919"/>
+<checkbox id="formularo__is" label="Íslenska"/>
+<checkbox id="formularo__it" label="Italiano"/>
+<checkbox id="formularo__ja_h" label="&#26085;&#26412;&#35486; (H)"/>
+<checkbox id="formularo__ja_k" label="&#26085;&#26412;&#35486; (K)"/>
+<checkbox id="formularo__ko" label="&#54620;&#44544;"/>
+<checkbox id="formularo__lb" label="L&#xeb;tzebuergesch"/>
+<checkbox id="formularo__lt" label="Lietuvi&#353;kai"/>
+<checkbox id="formularo__lv" label="Latvie&#353;u"/>
+<checkbox id="formularo__mk" label="Македонски"/>
+</box><box orient="vertical" align="left">
+<checkbox id="formularo__mt" label="Malti"/>
+<checkbox id="formularo__nl" label="Nederlands"/>
+<checkbox id="formularo__no" label="Norsk"/>
+<checkbox id="formularo__oc" label="Occitan"/>
+<checkbox id="formularo__pl" label="Polski"/>
+<checkbox id="formularo__pt" label="Português"/>
+<checkbox id="formularo__rm" label="Rumantsch"/>
+<checkbox id="formularo__ro" label="Română"/>
+<checkbox id="formularo__ru" label="&#1056;&#1091;&#1089;&#1089;&#1082;&#1080;&#1081;"/>
+<checkbox id="formularo__sa" label="Sanskrit IAST"/>
+<checkbox id="formularo__sk" label="Slovenský"/>
+</box><box orient="vertical" align="left"><checkbox id="formularo__se" label="Sami"/>
+<checkbox id="formularo__sl" label="Slovenščina"/>
+<checkbox id="formularo__sq" label="Gjuhashqipe"/>
+<checkbox id="formularo__sr" label="српски"/>
+<checkbox id="formularo__sv" label="Svenska"/>
+<checkbox id="formularo__th" label="&#3652;&#3607;&#3618;"/>
+<checkbox id="formularo__tr" label="Türkçe"/>
+<checkbox id="formularo__uk" label="&#1059;&#1082;&#1088;&#1072;&#1111;&#1085;&#1089;&#1100;&#1082;&#1072;"/>
+<checkbox id="formularo__zh_p" label="&#27721;&#35821; (P)"/>
+</box></groupbox>
+
+	<!-- KLAVOJ -->
+	<groupbox flex="1" orient="horizontal">
+		<caption label="&opcioj.du;" />
+		<box orient="horizontal" align="left">
+		<checkbox id="formularo__uzu_alt_f2" label="alt-F2"/>
+		<checkbox id="formularo__uzu_alt_f5" label="alt-F5"/>
+		<checkbox id="formularo__uzu_alt_f7" label="alt-F7"/>
+		<checkbox id="formularo__uzu_alt_f8" label="alt-F8"/>
+		<checkbox id="formularo__uzu_alt_f10" label="alt-F10"/>
+		<checkbox id="formularo__uzu_alt_f11" label="alt-F11"/>
+		</box>
+	</groupbox>
+
+	<!-- MAKROOJ -->	
+	<groupbox flex="1" orient="vertical">
+		<caption label="&opcioj.tri; (%u007C = |)" />
+		<box orient="horizontal" align="left">
+			<text value=" "/>
+			<textbox multiline="true" rows="16" cols="90" id="formularo__aldonaj"/>
+		</box>
+	</groupbox>
+
+	<!-- VARM-KLAVO -->
+	<groupbox flex="1" orient="vertical">
+		<caption label="&opcioj.kvar;" />
+		<text style="font-style: italic;" value="  &opcioj.kvar.helpeto;"/>
+		<box orient="horizontal" align="left">
+			<radiogroup id="formularo__tujtraduku" orient="horizontal">
+				<!-- F1 (help) F6 (adres) bone, F3 (trov) F5 (ghisdat) F10 (menu) F11 (ekran) ne bone -->
+				<radio id="formularo__tujtraduku_F1" value="F1" label="F1"/>
+				<radio id="formularo__tujtraduku_F2" value="F2" label="F2"/>
+				<radio id="formularo__tujtraduku_F4" value="F4" label="F4"/>
+				<radio id="formularo__tujtraduku_F6" value="F6" label="F6"/>
+				<radio id="formularo__tujtraduku_F7" value="F7" label="F7"/>
+				<radio id="formularo__tujtraduku_F8" value="F8" label="F8"/>
+				<radio id="formularo__tujtraduku_F9" value="F9" label="F9"/>
+				<radio id="formularo__tujtraduku_F12" value="F12" label="F12"/>
+				<radio id="formularo__tujtraduku_INSERT" value="INSERT" label="&opcioj.enmeti;"/>
+			</radiogroup>
+		</box>
+	</groupbox>
+
+	</vbox>
+	</hbox>
+  
+<box pack="center">
+<button style="color:red;font-size:larger;font-weight:bold" label="&opcioj.nuligi;" oncommand="window.close();"/>
+<button style="color:blue;font-size:larger;font-weight:bold" label="?" oncommand="window.open('http://lingvo.org/abctajpu/#helpo');"/>
+<button style="color:green;font-size:larger;font-weight:bold" label="&opcioj.registri;" oncommand="tajpu_akceptu_opciojn(); window.close();"/>
+</box>
+<box pack="center">
+<description value="&opcioj.helpo; http://lingvo.org/abctajpu" class="url" onclick="window.open('http://lingvo.org/abctajpu/');"/>
+</box>
+
+</vbox>
+
+</window>

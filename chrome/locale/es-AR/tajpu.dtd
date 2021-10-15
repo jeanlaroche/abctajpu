@@ -1,0 +1,18 @@
+<!ENTITY opcioj.registri "Guardar">
+<!ENTITY opcioj.nuligi "Cancelar">
+<!ENTITY opcioj.enmeti "INSERT">
+<!ENTITY opcioj.helpo "Para más información visite">
+<!ENTITY opcioj.unu "Idiomas que aparecerán en el menú contextual junto a la opción genérica del menú abcTajpu">
+<!ENTITY opcioj.du "Habilitar teclas especiales, por ejemplo Alt-F7 para agregar un circunflejo a la letra antes pulsada">
+<!ENTITY opcioj.tri "Macros definidas por el usuario, nombre=valor|... donde &#37;u#### significa Unicode">
+<!ENTITY opcioj.kvar "Elegir tecla de acceso rápido, además de Ctrl-Mayús-Alt-Insert para ampliar una macro">
+<!ENTITY opcioj.kvar.helpeto "Por ejemplo, si la tecla de acceso general es INSERT, luego e ' INSERT da é, y s m INSERT da saluton mondo.">
+<!ENTITY menuo.klavaro "Teclado">
+<!ENTITY menuo.opcioj "Opciones">
+<!ENTITY menuo.helpo "Ayuda">
+<!ENTITY pri.akcepti "Aceptar">
+<!ENTITY alirklavo.klavaro "T">
+<!ENTITY alirklavo.opcioj "O">
+<!ENTITY alirklavo.helpo "A">
+<!ENTITY pri.p "Proyecto de la Unión Europea de Esperanto para ayudar a la diversidad e igualdad lingüística.">
+<!ENTITY pri.s "En apoyo del Día Europeo de las Lenguas.">

@@ -1,0 +1,18 @@
+<!ENTITY opcioj.registri "Save"> 
+<!ENTITY opcioj.nuligi "Cancel"> 
+<!ENTITY opcioj.enmeti "INSERT"> 
+<!ENTITY opcioj.helpo "For more information visit"> 
+<!ENTITY opcioj.unu "Languages for right click popup menu"> 
+<!ENTITY opcioj.du "Add-accent keys (for example alt-F7 to add a circumflex to the previously typed letter)"> 
+<!ENTITY opcioj.tri "User defined macros (name=value&#x7C;... where any &#x25;u#### means Unicode)"> 
+<!ENTITY opcioj.kvar "Hot key (in addition to control-shift-alt-insert, to expand previous macro)"> 
+<!ENTITY opcioj.kvar.helpeto "For example, if the hot key is INSERT, then e ' INSERT gives &#233;, and s m INSERT gives saluton mondo."> 
+<!ENTITY menuo.klavaro "Keyboard"> 
+<!ENTITY menuo.opcioj "Options"> 
+<!ENTITY menuo.helpo "Help">
+<!ENTITY alirklavo.klavaro "K">
+<!ENTITY alirklavo.opcioj "O">
+<!ENTITY alirklavo.helpo "H">
+<!ENTITY pri.akcepti "OK"> 
+<!ENTITY pri.p "Project of the European Esperanto Union to help language diversity and equality."> 
+<!ENTITY pri.s "In support of European Language Day."> 

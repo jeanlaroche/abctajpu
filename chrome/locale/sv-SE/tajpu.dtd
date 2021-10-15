@@ -1,0 +1,18 @@
+<!ENTITY opcioj.registri "Spara">
+<!ENTITY opcioj.nuligi "Avbryt">
+<!ENTITY opcioj.enmeti "INFOGA">
+<!ENTITY opcioj.helpo "För mer information, besök">
+<!ENTITY opcioj.unu "Språk som ska finnas i ett skrivfältskontext klicka popup-meny bredvid den generiska abcTajpu-menyn">
+<!ENTITY opcioj.du "Aktivera vilka speciella kortkommandon, t.ex. alt-F7, för att lägga till ett cirkumflex till föregående bokstav">
+<!ENTITY opcioj.tri "Användardefinierade makron, name=value&amp;#x7C;... där &#x25;u#### betyder Unicode">
+<!ENTITY opcioj.kvar "Val av allmänt kortkommando, förutom control-shift-alt-insert, för att expandera makro">
+<!ENTITY opcioj.kvar.helpeto "Till exempel, om det allmänna kortkommandot är INSERT, så ger e ' INSERT &amp;#233;, och s m INSERT ger saluton mondo.">
+<!ENTITY menuo.klavaro "Tangentbord">
+<!ENTITY menuo.opcioj "Alternativ">
+<!ENTITY menuo.helpo "Hjälp">
+<!ENTITY alirklavo.klavaro "T">
+<!ENTITY alirklavo.opcioj "A">
+<!ENTITY alirklavo.helpo "H">
+<!ENTITY pri.akcepti "OK">
+<!ENTITY pri.p "Ett projekt från Europeiska Esperantounionen för att främja mångfald och jämlikhet.">
+<!ENTITY pri.s "Till stöd för Europeiska språkdagen.">

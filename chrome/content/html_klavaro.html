@@ -1,0 +1,783 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<html><head>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<title></title>
+
+<style type="text/css">
+.f {margin:0;padding:0; font-size:small}
+.b {margin:0;padding:0; font-size:small}
+</style>
+
+<script language="JavaScript">
+var liva0 = -2;
+var liva1 = -1;
+
+function legu_tajppozicion(elemento)
+{
+var i=-1, I=i, j=-1, J=j;
+liva1 = -3;
+try
+{
+   if(typeof elemento.selectionStart=="number") {
+     i=elemento.selectionStart;
+     j=elemento.selectionEnd;
+     I=i;
+     J=j;
+       //alert("FF/O "+i+" "+j);
+   } else if(document.selection && elemento.createTextRange) {
+	var sel, rngi, rngj, r2;
+// http://msdn.microsoft.com/library/default.asp?url=/workshop/browser/mshtml/reference/ifaces/txtrange/txtrange.asp
+// http://www.webreference.com/js/column12/trmethods.html
+// javascript:alert(document.selection.createRange().text+".")		// nur MSIE
+// http://www.devguru.com/Technologies/Ecmascript/Quickref/doc_getSelection.html
+// http://www.quirksmode.org/dom/range_intro.html
+     sel=document.selection; // bedauride en MISE finaj CR ne estas inkluzivita!
+     if(sel){
+       try
+       {
+       r2=sel.createRange();
+       liva1 = r2.offsetLeft;
+       rngi=elemento.createTextRange();
+       rngi.setEndPoint("EndToStart", r2);
+       i=rngi.text.length;
+       rngj=elemento.createTextRange();
+       rngj.setEndPoint("EndToEnd", r2);
+       j=rngj.text.length;
+       //alert("MS (input) "+i+" "+j);
+       }
+       catch(e)
+       {
+        r2=sel.createRange();
+	var r3= r2.duplicate();
+        liva1 = r2.offsetLeft;
+	r3.moveToElementText(elemento); // selekt tekson en r3
+	r3.setEndPoint('EndToEnd',r2);
+	var x2=r2.text;
+	var x3=r3.text; 
+	i = x3.length - x2.length;
+	j = i + x2.length;
+
+	x2 = x2.replace(/\r?\n/g,"\n"); // \r\n -> longeco 1 ne 2!
+	x3 = x3.replace(/\r?\n/g,"+\n"); // \r\n -> longeco 1 ne 2!
+	//alert("MS (linifinoj) "+x3+" "+x3.length);
+	I = x3.length - x2.length;
+	J = I + x2.length;
+
+        //alert("MS (textarea) {"+x3+"} "+i+" "+j+"("+I+" "+J+")");
+       }
+     }
+     else {
+	//alert("NO SEL");
+     }
+   } else {
+	   //alert("ER");
+	   i=-1;
+	   I=i;
+	   j=-1;
+	   J=j;
+   }
+}
+catch (e)
+{
+	//alert(e);
+}
+
+//alert("AKIRIS "+i+" "+j);
+if (i < 0) // || i != j)
+{
+	i=-1;
+	I=i;
+	j=-1;
+	J=j;
+}
+
+var a = new Array();
+a[0] = i;
+a[1] = j;
+a[2] = I;
+a[3] = J;
+return a; 
+} 
+
+
+function skribu_tajppozicion(elemento, kie, komenco, kion)
+{
+try
+{
+	kie=kie+kion.length-1;
+	if(typeof elemento.selectionStart=="number") {
+   	//alert("FF/O relokigu al "+kie);
+	//elemento.selectionStart = kie; elemento.selectionEnd = kie; <-- erareto en Opera 8.5/9.10, bug-182864 CHE bugs.opera.com, uzu anstatauxe setSelectionRange()
+	elemento.setSelectionRange(kie, kie);
+	} else if(elemento.createTextRange) {
+	// ne en Firefox
+	komenco = komenco.replace(/\r?\n/g,"\n"); // \r\n -> longeco 1 ne 2!
+   	//alert("MS relokigu al "+kie+" ; "+komenco.length);
+	var r = elemento.createTextRange(); r.move('character', komenco.length); r.select(); 
+   } 
+}
+catch (e)
+{
+	alert(e);
+}
+}
+
+
+function internaciemetu
+(
+	elemento, // ENA, DEVIGA, OFTE "this"
+	ev, // ENA, DEVIGA, FIKSITA "event"
+	kion // litero
+)
+{
+		try
+		{
+			var metu = false;
+			elemento.focus(); var a = legu_tajppozicion(elemento);
+			var i = a[0];
+			var I = a[2];
+			var M = -1;
+			//alert(i);
+			//alert(liva0+" ~ "+liva1)
+			if (i < 0)
+			{
+				return;
+			}
+			var k = elemento.value.substr(0,i);
+			var f = elemento.value.substr(a[1]);
+
+			if (navigator.userAgent.match(/msie/i) && !navigator.userAgent.match(/opera/i) // en MSIE stulte "xCR" ighas "x"
+						&& liva0 == liva1 // unua kolumno
+						&& k != "" // sed ne tutunua linio
+						)
+			{
+				k = k + "\n";
+				f = f.replace(/^\r?\n/,"");
+			}
+			//alert(i+" | "+'<'+k+'>'+" | "+'<'+f+'>');
+
+			var k0 = k;
+			var f0 = f;
+
+			if (1)
+			{
+				//alert(kion.length);
+				k = k.replace(/$/g,kion);
+				if (k.length != k0.length)
+				{
+					metu = true;
+					M=I+1;
+				}
+			}
+
+			if (metu)
+			{
+				elemento.value = k+f;
+				skribu_tajppozicion(elemento, M, k, kion);
+				//alert(k0+" => "+k);
+			}
+
+			var eraro= false;
+			var K=k; K = K.replace(/\r?\n/g,"\n"); // \r\n -> longeco 1 ne 2!
+			var F=f; F = F.replace(/\r?\n/g,"\n"); // \r\n -> longeco 1 ne 2!
+			M=I;
+			if (typeof(maksimuma_longeco) != "undefined" && (K+F).length>maksimuma_longeco)
+			{
+				eraro = true;
+				while (k.length > 0 && (K+F).length>maksimuma_longeco)
+				{
+					k = k.replace(/\r?.$/, "");
+					K = K.replace(/.$/g,"");
+					M--;
+				}
+			}
+			if (typeof(komencaj_spacoj) != "undefined" && !komencaj_spacoj && (K+F).match(/^\s+/))
+			{
+				var re = RegExp("^\\s+");
+				while ((K+F).match(re))
+				{
+					eraro = true;
+					while ((K+F).match(re))
+					{
+						k = k.replace(/^./, "");
+						K = K.replace(/^./g,"");
+						M--;
+					}
+				}
+			}
+			if (typeof(modelo) != "undefined" && modelo.length>0)
+			{
+				var re = RegExp(modelo);
+				while (!(K+F).match(re))
+				{
+					eraro = true;
+					while (!(K+F).match(re))
+					{
+						k = k.replace(/\r?.$/, "");
+						K = K.replace(/.$/g,"");
+						M--;
+					}
+				}
+			}
+			if (eraro)
+			{
+				elemento.value = k+f;
+				skribu_tajppozicion(elemento, M, k, kion);
+			}
+			//alert(elemento.value);
+		}
+		catch (e)
+		{
+			//alert(e);
+		}
+}
+</script>
+
+
+<script language="JavaScript">
+function k(evento,elemento)
+{
+	internaciemetu(document.getElementById('tt'),evento,elemento.getAttribute('value'));
+}
+</script>
+
+</head>
+
+<body onload="document.getElementById('tt').value=window.arguments[0].res; legu_tajppozicion(document.getElementById('tt')); liva0=liva1; document.getElementById('tt').focus(); return true;">
+
+<center>
+	<textarea id="tt" name="tt" wrap="soft" cols="90" rows="10"></textarea>
+	<br />
+	<table>
+		<tr>
+			<td width="33%">
+				<input style="background:yellow" type="button" class="b" onClick="k(event,this)" value="A" /> 
+				<input type="button" class="b" onClick="k(event,this)" value="À" />
+				<input type="button" class="b" onClick="k(event,this)" value="Á" />
+				<input type="button" class="b" onClick="k(event,this)" value="Â" />
+				<input type="button" class="b" onClick="k(event,this)" value="Ã" />
+				<input type="button" class="b" onClick="k(event,this)" value="Ä" />
+				<input type="button" class="b" onClick="k(event,this)" value="Å" />
+				<input type="button" class="b" onClick="k(event,this)" value="Æ" />
+				<input type="button" class="b" onClick="k(event,this)" value="Ǣ" />
+				<input type="button" class="b" onClick="k(event,this)" value="Ā" />
+				<input type="button" class="b" onClick="k(event,this)" value="Ă" />
+				<input type="button" class="b" onClick="k(event,this)" value="Ą" />
+				<input type="button" class="b" onClick="k(event,this)" value="Ǎ" />
+				<input style="background:yellow" type="button" class="b" onClick="k(event,this)" value="B" /> 
+				<input style="background:yellow" type="button" class="b" onClick="k(event,this)" value="C" /> 
+				<input accesskey="X" type="button" class="b" onClick="k(event,this)" value="Ĉ" />
+				<input type="button" class="b" onClick="k(event,this)" value="Ç" />
+				<input type="button" class="b" onClick="k(event,this)" value="Ć" />
+				<input type="button" class="b" onClick="k(event,this)" value="Ċ" />
+				<input type="button" class="b" onClick="k(event,this)" value="Č" />
+				<input style="background:yellow" type="button" class="b" onClick="k(event,this)" value="D" /> 
+				<input type="button" class="b" onClick="k(event,this)" value="Ð" />
+				<input type="button" class="b" onClick="k(event,this)" value="Ď" />
+				<input type="button" class="b" onClick="k(event,this)" value="Đ" />
+				<input type="button" class="b" onClick="k(event,this)" value="Ḍ" />
+				<input style="background:yellow" type="button" class="b" onClick="k(event,this)" value="E" /> 
+				<input type="button" class="b" onClick="k(event,this)" value="&#xC8;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#xC9;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#xCA;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#xCB;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#x112;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#x114;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#x116;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#x118;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#x11A;" />
+				<input style="background:yellow" type="button" class="b" onClick="k(event,this)" value="F" /> 
+				<input style="background:yellow" type="button" class="b" onClick="k(event,this)" value="G" /> 
+				<input accesskey="W" type="button" class="b" onClick="k(event,this)" value="Ĝ" />
+				<input type="button" class="b" onClick="k(event,this)" value="Ğ" />
+				<input type="button" class="b" onClick="k(event,this)" value="Ġ" />
+				<input type="button" class="b" onClick="k(event,this)" value="Ģ" />
+				<input style="background:yellow" type="button" class="b" onClick="k(event,this)" value="H" />
+				<input accesskey="0" type="button" class="b" onClick="k(event,this)" value="Ĥ" />
+				<input type="button" class="b" onClick="k(event,this)" value="Ḥ" /> 
+				<input type="button" class="b" onClick="k(event,this)" value="H̤" />
+				<input type="button" class="b" onClick="k(event,this)" value="Ḫ" />
+				<input type="button" class="b" onClick="k(event,this)" value="H̱" />
+				<input type="button" class="b" onClick="k(event,this)" value="Ħ" />
+				<input style="background:yellow" type="button" class="b" onClick="k(event,this)" value="I" /> 
+				<input type="button" class="b" onClick="k(event,this)" value="&#xCC;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#xCD;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#xCE;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#xCF;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#x128;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#x12A;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#x12C;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#x12E;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#x130;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#x132;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#x01cf;" />
+				<input style="background:yellow" type="button" class="b" onClick="k(event,this)" value="J" /> 
+				<input accesskey="9" type="button" class="b" onClick="k(event,this)" value="Ĵ" />
+				<input style="background:yellow" type="button" class="b" onClick="k(event,this)" value="K" />
+				<input type="button" class="b" onClick="k(event,this)" value="ĸ" />
+				<input type="button" class="b" onClick="k(event,this)" value="Ķ" />
+				<input type="button" class="b" onClick="k(event,this)" value="Ḵ" />
+				<input type="button" class="b" onClick="k(event,this)" value="K͟H" /> 
+				<input style="background:yellow" type="button" class="b" onClick="k(event,this)" value="L" /> 
+				<input type="button" class="b" onClick="k(event,this)" value="Ĺ" />
+				<input type="button" class="b" onClick="k(event,this)" value="Ŀ" />
+				<input type="button" class="b" onClick="k(event,this)" value="Ľ" />
+				<input type="button" class="b" onClick="k(event,this)" value="Ļ" />
+				<input type="button" class="b" onClick="k(event,this)" value="Ł" />
+				<input type="button" class="b" onClick="k(event,this)" value="Ḻ" />
+				<input type="button" class="b" onClick="k(event,this)" value="Ḷ" />
+				<input type="button" class="b" onClick="k(event,this)" value="L̥" />
+				<input type="button" class="b" onClick="k(event,this)" value="Ḹ" />
+				<input type="button" class="b" onClick="k(event,this)" value="L̥̄" />
+				<input style="background:yellow" type="button" class="b" onClick="k(event,this)" value="M" />
+				<input type="button" class="b" onClick="k(event,this)" value="Ṁ" /> 
+				<input type="button" class="b" onClick="k(event,this)" value="Ṃ" />
+				<input type="button" class="b" onClick="k(event,this)" value="M̆̇" />
+<input style="background:yellow" type="button" class="b" onClick="k(event,this)" value="N" /> 
+				<input type="button" class="b" onClick="k(event,this)" value="Ń" />
+				<input type="button" class="b" onClick="k(event,this)" value="Ň" />
+				<input type="button" class="b" onClick="k(event,this)" value="Ñ" />
+				<input type="button" class="b" onClick="k(event,this)" value="Ņ" />
+				<input type="button" class="b" onClick="k(event,this)" value="Ṉ" />
+				<input type="button" class="b" onClick="k(event,this)" value="N̆" />  
+				<input type="button" class="b" onClick="k(event,this)" value="ŉ" />  
+				<input type="button" class="b" onClick="k(event,this)" value="Ŋ" />
+                                <input type="button" class="b" onClick="k(event,this)" value="Ṅ" />
+                                <input type="button" class="b" onClick="k(event,this)" value="Ṇ" />
+				<input style="background:yellow" type="button" class="b" onClick="k(event,this)" value="O" /> 
+				<input type="button" class="b" onClick="k(event,this)" value="&#xD2;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#xD3;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#xD4;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#xD5;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#xD6;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#xD8;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#x14C;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#x14E;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#x150;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#x152;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#x01d1;" />
+				<input style="background:yellow" type="button" class="b" onClick="k(event,this)" value="P" /> 
+				<input style="background:yellow" type="button" class="b" onClick="k(event,this)" value="Q" /> 
+				<input style="background:yellow" type="button" class="b" onClick="k(event,this)" value="R" /> 
+				<input type="button" class="b" onClick="k(event,this)" value="Ŕ" />
+				<input type="button" class="b" onClick="k(event,this)" value="Ř" />
+				<input type="button" class="b" onClick="k(event,this)" value="R̆" />
+				<input type="button" class="b" onClick="k(event,this)" value="R̄" />
+				<input type="button" class="b" onClick="k(event,this)" value="Ŗ" />
+				<input type="button" class="b" onClick="k(event,this)" value="Ṟ" /> 
+				<input type="button" class="b" onClick="k(event,this)" value="Ṛ" /> 
+				<input type="button" class="b" onClick="k(event,this)" value="R̥" />
+				<input type="button" class="b" onClick="k(event,this)" value="Ṝ" />
+				<input type="button" class="b" onClick="k(event,this)" value="R̥̄" />
+			<input style="background:yellow" type="button" class="b" onClick="k(event,this)" value="S" /> 
+				<input accesskey="Q" type="button" class="b" onClick="k(event,this)" value="Ŝ" />
+				<input type="button" class="b" onClick="k(event,this)" value="Ś" />
+				<input type="button" class="b" onClick="k(event,this)" value="Ş" />
+				<input type="button" class="b" onClick="k(event,this)" value="Ṣ" />
+				<input type="button" class="b" onClick="k(event,this)" value="S̤" />
+				<input type="button" class="b" onClick="k(event,this)" value="S̱" />
+				<input type="button" class="b" onClick="k(event,this)" value="Ș" />
+				<input type="button" class="b" onClick="k(event,this)" value="Š" />
+                                <input type="button" class="b" onClick="k(event,this)" value="ẞ" />
+				<input style="background:yellow" type="button" class="b" onClick="k(event,this)" value="T" /> 
+				<input type="button" class="b" onClick="k(event,this)" value="Þ" />
+				<input type="button" class="b" onClick="k(event,this)" value="Ť" />
+				<input type="button" class="b" onClick="k(event,this)" value="Ţ" />
+				<input type="button" class="b" onClick="k(event,this)" value="Ṯ" />
+				<input type="button" class="b" onClick="k(event,this)" value="Ṭ" />
+				<input type="button" class="b" onClick="k(event,this)" value="T̤" />
+				<input type="button" class="b" onClick="k(event,this)" value="Ț" />
+				<input type="button" class="b" onClick="k(event,this)" value="Ŧ" />
+				<input style="background:yellow" type="button" class="b" onClick="k(event,this)" value="U" /> 
+				<input accesskey="Y" type="button" class="b" onClick="k(event,this)" value="&#x16C;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#xD9;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#xDA;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#xDB;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#xDC;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#x168;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#x16A;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#x16E;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#x170;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#x172;" />
+							<input type="button" class="b" onClick="k(event,this)" value="&#x1D3;" />
+							<input type="button" class="b" onClick="k(event,this)" value="Ǖ" />
+							<input type="button" class="b" onClick="k(event,this)" value="Ǘ" />
+							<input type="button" class="b" onClick="k(event,this)" value="Ǚ" />
+							<input type="button" class="b" onClick="k(event,this)" value="Ǜ" />
+							<input style="background:yellow" type="button" class="b" onClick="k(event,this)" value="V" /> 
+							<input style="background:yellow" type="button" class="b" onClick="k(event,this)" value="W" /> 
+				<input type="button" class="b" onClick="k(event,this)" value="&#x174;" />
+				<input type="button" class="b" onClick="k(event,this)" value="Ẅ" />
+				<input type="button" class="b" onClick="k(event,this)" value="Ẃ" />
+				<input type="button" class="b" onClick="k(event,this)" value="Ẁ" />
+				<input style="background:yellow" type="button" class="b" onClick="k(event,this)" value="X" /> 
+				<input style="background:yellow" type="button" class="b" onClick="k(event,this)" value="Y" /> 
+				<input type="button" class="b" onClick="k(event,this)" value="Ý" />
+				<input type="button" class="b" onClick="k(event,this)" value="Ỳ" />
+				<input type="button" class="b" onClick="k(event,this)" value="Ẏ" />
+				<input type="button" class="b" onClick="k(event,this)" value="Ŷ" />
+				<input type="button" class="b" onClick="k(event,this)" value="Ÿ" />
+				<input style="background:yellow" type="button" class="b" onClick="k(event,this)" value="Z" /> 
+				<input type="button" class="b" onClick="k(event,this)" value="Ź" />
+				<input type="button" class="b" onClick="k(event,this)" value="Ż" />
+				<input type="button" class="b" onClick="k(event,this)" value="Ẑ" />
+				<input type="button" class="b" onClick="k(event,this)" value="Ž" />
+				<input type="button" class="b" onClick="k(event,this)" value="Ẕ" />
+<input type="button" class="b" onClick="k(event,this)" value="Ẓ" />
+
+
+			</td>
+			<td width="30%">
+				<input style="background:lightgreen" type="button" class="b" onClick="k(event,this)" value="a" />
+				<input accesskey="a" type="button" class="b" onClick="k(event,this)" value="à" />
+				<input type="button" class="b" onClick="k(event,this)" value="á" />
+				<input type="button" class="b" onClick="k(event,this)" value="â" />
+				<input type="button" class="b" onClick="k(event,this)" value="ã" />
+				<input type="button" class="b" onClick="k(event,this)" value="ä" />
+				<input type="button" class="b" onClick="k(event,this)" value="å" />
+				<input type="button" class="b" onClick="k(event,this)" value="æ" />
+				<input type="button" class="b" onClick="k(event,this)" value="ǣ" />
+				<input type="button" class="b" onClick="k(event,this)" value="ā" />
+				<input type="button" class="b" onClick="k(event,this)" value="ă" />
+				<input type="button" class="b" onClick="k(event,this)" value="ą" />
+				<input type="button" class="b" onClick="k(event,this)" value="ǎ" />
+				<input style="background:lightgreen" type="button" class="b" onClick="k(event,this)" value="b" />
+				<input style="background:lightgreen" type="button" class="b" onClick="k(event,this)" value="c" />
+				<input accesskey="c" type="button" class="b" onClick="k(event,this)" value="ĉ" />
+				<input type="button" class="b" onClick="k(event,this)" value="ç" />
+				<input type="button" class="b" onClick="k(event,this)" value="ć" />
+				<input type="button" class="b" onClick="k(event,this)" value="ċ" />
+				<input type="button" class="b" onClick="k(event,this)" value="č" />
+				<input style="background:lightgreen" type="button" class="b" onClick="k(event,this)" value="d" />
+				<input accesskey="d" type="button" class="b" onClick="k(event,this)" value="ð" />
+				<input type="button" class="b" onClick="k(event,this)" value="ď" />
+				<input type="button" class="b" onClick="k(event,this)" value="đ" /> 
+				<input type="button" class="b" onClick="k(event,this)" value="ḍ" />
+				<input style="background:lightgreen" type="button" class="b" onClick="k(event,this)" value="e" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#xE8;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#xE9;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#xEA;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#xEB;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#x113;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#x115;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#x117;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#x119;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#x11B;" />
+				<input style="background:lightgreen" type="button" class="b" onClick="k(event,this)" value="f" />
+				<input style="background:lightgreen" type="button" class="b" onClick="k(event,this)" value="g" />
+				<input accesskey="g" type="button" class="b" onClick="k(event,this)" value="ĝ" />
+				<input type="button" class="b" onClick="k(event,this)" value="ğ" />
+				<input type="button" class="b" onClick="k(event,this)" value="ġ" />
+				<input type="button" class="b" onClick="k(event,this)" value="ģ" />
+				<input style="background:lightgreen" type="button" class="b" onClick="k(event,this)" value="h" />
+				<input accesskey="h" type="button" class="b" onClick="k(event,this)" value="ĥ" />
+				<input type="button" class="b" onClick="k(event,this)" value="ḥ" />
+				<input type="button" class="b" onClick="k(event,this)" value="h̤" />
+				<input type="button" class="b" onClick="k(event,this)" value="ḫ" />
+				<input type="button" class="b" onClick="k(event,this)" value="ẖ" />
+				<input type="button" class="b" onClick="k(event,this)" value="ħ" /> 
+				<input style="background:lightgreen" type="button" class="b" onClick="k(event,this)" value="i" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#xEC;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#xED;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#xEE;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#xEF;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#x129;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#x12B;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#x12D;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#x12F;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#x131;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#x133;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#x01d0;" />
+				<input style="background:lightgreen" type="button" class="b" onClick="k(event,this)" value="j" />
+				<input accesskey="j" type="button" class="b" onClick="k(event,this)" value="ĵ" />
+				<input style="background:lightgreen" type="button" class="b" onClick="k(event,this)" value="k" />
+				<input type="button" class="b" onClick="k(event,this)" value="ĸ" />
+				<input type="button" class="b" onClick="k(event,this)" value="ķ" />
+				<input type="button" class="b" onClick="k(event,this)" value="ḵ" />
+				<input type="button" class="b" onClick="k(event,this)" value="k͟h" />
+				<input style="background:lightgreen" type="button" class="b" onClick="k(event,this)" value="l" />
+				<input type="button" class="b" onClick="k(event,this)" value="ĺ" />
+				<input type="button" class="b" onClick="k(event,this)" value="ŀ" />
+				<input type="button" class="b" onClick="k(event,this)" value="ľ" />
+				<input type="button" class="b" onClick="k(event,this)" value="ļ" />
+				<input type="button" class="b" onClick="k(event,this)" value="ł" />
+				<input type="button" class="b" onClick="k(event,this)" value="ḻ" />
+				<input type="button" class="b" onClick="k(event,this)" value="ḷ" />
+				<input type="button" class="b" onClick="k(event,this)" value="l̥" />
+				<input type="button" class="b" onClick="k(event,this)" value="ḹ" />
+				<input type="button" class="b" onClick="k(event,this)" value="l̥̄" />
+				<input style="background:lightgreen" type="button" class="b" onClick="k(event,this)" value="m" />
+				<input type="button" class="b" onClick="k(event,this)" value="ṁ" />
+				<input type="button" class="b" onClick="k(event,this)" value="ṃ" />
+				<input type="button" class="b" onClick="k(event,this)" value="m̆̇" />
+			<input style="background:lightgreen" type="button" class="b" onClick="k(event,this)" value="n" />
+				<input accesskey="n" type="button" class="b" onClick="k(event,this)" value="ń" />
+				<input type="button" class="b" onClick="k(event,this)" value="ň" />
+				<input type="button" class="b" onClick="k(event,this)" value="ñ" />
+				<input type="button" class="b" onClick="k(event,this)" value="ņ" />
+				<input type="button" class="b" onClick="k(event,this)" value="ṉ" />
+				<input type="button" class="b" onClick="k(event,this)" value="n̆" />
+				<input type="button" class="b" onClick="k(event,this)" value="ŉ" />
+				<input type="button" class="b" onClick="k(event,this)" value="ŋ" />
+				<input type="button" class="b" onClick="k(event,this)" value="ṅ" />  
+				<input type="button" class="b" onClick="k(event,this)" value="ṇ" />  
+<input style="background:lightgreen" type="button" class="b" onClick="k(event,this)" value="o" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#xF2;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#xF3;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#xF4;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#xF5;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#xF6;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#xF8;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#x14D;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#x14F;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#x151;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#x153;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#x01d2;" />
+				<input style="background:lightgreen" type="button" class="b" onClick="k(event,this)" value="p" />
+				<input style="background:lightgreen" type="button" class="b" onClick="k(event,this)" value="q" />
+				<input style="background:lightgreen" type="button" class="b" onClick="k(event,this)" value="r" />
+                                <input type="button" class="b" onClick="k(event,this)" value="ŕ" />
+				<input type="button" class="b" onClick="k(event,this)" value="ř" />
+				<input type="button" class="b" onClick="k(event,this)" value="r̆" />
+				<input type="button" class="b" onClick="k(event,this)" value="r̄" />
+				<input type="button" class="b" onClick="k(event,this)" value="ŗ" />
+				<input type="button" class="b" onClick="k(event,this)" value="ṟ" />
+				<input type="button" class="b" onClick="k(event,this)" value="ṛ" /> 
+				<input type="button" class="b" onClick="k(event,this)" value="r̥" /> 
+				<input type="button" class="b" onClick="k(event,this)" value="ṝ" /> 
+				<input type="button" class="b" onClick="k(event,this)" value="r̥̄" /> 
+				<input style="background:lightgreen" type="button" class="b" onClick="k(event,this)" value="s" />
+				<input accesskey="s" type="button" class="b" onClick="k(event,this)" value="ŝ" />
+			        <input type="button" class="b" onClick="k(event,this)" value="ś" />
+				<input type="button" class="b" onClick="k(event,this)" value="ş" />
+				<input type="button" class="b" onClick="k(event,this)" value="ṣ" />
+				<input type="button" class="b" onClick="k(event,this)" value="s̤" />
+				<input type="button" class="b" onClick="k(event,this)" value="s̱" />
+				<input type="button" class="b" onClick="k(event,this)" value="ș" />
+				<input type="button" class="b" onClick="k(event,this)" value="š" />
+				<input type="button" class="b" onClick="k(event,this)" value="ß" />  
+				<input style="background:lightgreen" type="button" class="b" onClick="k(event,this)" value="t" />
+				<input accesskey="t" type="button" class="b" onClick="k(event,this)" value="þ" />
+				<input type="button" class="b" onClick="k(event,this)" value="ť" />
+				<input type="button" class="b" onClick="k(event,this)" value="ţ" />
+				<input type="button" class="b" onClick="k(event,this)" value="ṯ" />
+				<input type="button" class="b" onClick="k(event,this)" value="ṭ" />
+				<input type="button" class="b" onClick="k(event,this)" value="t̤" />
+				<input type="button" class="b" onClick="k(event,this)" value="ț" /> 
+				<input type="button" class="b" onClick="k(event,this)" value="ŧ" />
+				<input style="background:lightgreen" type="button" class="b" onClick="k(event,this)" value="u" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#xF9;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#xFA;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#xFB;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#xFC;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#x169;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#x16B;" />
+				<input accesskey="u" type="button" class="b" onClick="k(event,this)" value="&#x16D;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#x16F;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#x171;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#x173;" />
+							<input type="button" class="b" onClick="k(event,this)" value="&#x1D4;" />
+							<input type="button" class="b" onClick="k(event,this)" value="ǖ" />
+							<input type="button" class="b" onClick="k(event,this)" value="ǘ" />
+							<input type="button" class="b" onClick="k(event,this)" value="ǚ" />
+							<input type="button" class="b" onClick="k(event,this)" value="ǜ" />
+				<input style="background:lightgreen" type="button" class="b" onClick="k(event,this)" value="v" />
+				<input style="background:lightgreen" type="button" class="b" onClick="k(event,this)" value="w" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#x175;" />
+				<input type="button" class="b" onClick="k(event,this)" value="ẅ" />
+				<input type="button" class="b" onClick="k(event,this)" value="ẃ" />
+				<input type="button" class="b" onClick="k(event,this)" value="ẁ" />
+				<input style="background:lightgreen" type="button" class="b" onClick="k(event,this)" value="x" />
+				<input style="background:lightgreen" type="button" class="b" onClick="k(event,this)" value="y" />
+				<input type="button" class="b" onClick="k(event,this)" value="ý" />
+				<input type="button" class="b" onClick="k(event,this)" value="ỳ" />
+				<input type="button" class="b" onClick="k(event,this)" value="ẏ" />
+				<input type="button" class="b" onClick="k(event,this)" value="ŷ" />
+				<input type="button" class="b" onClick="k(event,this)" value="ÿ" />
+				<input style="background:lightgreen" type="button" class="b" onClick="k(event,this)" value="z" />
+				<input type="button" class="b" onClick="k(event,this)" value="ź" />
+				<input type="button" class="b" onClick="k(event,this)" value="ż" />
+				<input type="button" class="b" onClick="k(event,this)" value="ẑ" />
+				<input type="button" class="b" onClick="k(event,this)" value="ž" />
+				<input type="button" class="b" onClick="k(event,this)" value="ẕ" />
+				<input type="button" class="b" onClick="k(event,this)" value="ẓ" />
+			</td>
+			<td width="37%">
+				<!-- greke majuskle -->	
+				<input style="background:lightblue" type="button" class="b" onClick="k(event,this)" value="&#x391;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#x392;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#x393;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#x394;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#x395;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#x396;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#x397;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#x398;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#x399;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#x39A;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#x39B;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#x39C;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#x39D;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#x39E;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#x39F;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#x3A0;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#x3A1;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#x3A3;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#x3A4;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#x3A5;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#x3A6;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#x3A7;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#x3A8;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#x3A9;" />
+
+				<!-- greke minuskle -->	
+				<input style="background:lightblue" type="button" class="b" onClick="k(event,this)" value="&#x3B1;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#x3B2;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#x3B3;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#x3B4;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#x3B5;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#x3B6;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#x3B7;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#x3B8;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#x3B9;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#x3BA;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#x3BB;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#x3BC;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#x3BD;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#x3BE;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#x3BF;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#x3C0;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#x3C1;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#x3C3;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#x3C4;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#x3C5;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#x3C6;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#x3C7;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#x3C8;" />
+				<input type="button" class="b" onClick="k(event,this)" value="&#x3C9;" />
+
+				<br />
+				<!-- Cirile -->
+					<input style="background:pink" type="button" class="b" onClick="k(event,this)" value="&#x0410;" />
+					<input type="button" class="b" onClick="k(event,this)" value="&#x0411;" />
+					<input type="button" class="b" onClick="k(event,this)" value="&#x0412;" />
+					<input type="button" class="b" onClick="k(event,this)" value="&#x0413;" />
+					<input type="button" class="b" onClick="k(event,this)" value="&#x0414;" />
+					<input type="button" class="b" onClick="k(event,this)" value="&#x0415;" />
+					<input type="button" class="b" onClick="k(event,this)" value="&#x0401;" />
+					<input type="button" class="b" onClick="k(event,this)" value="&#x0416;" />
+					<input type="button" class="b" onClick="k(event,this)" value="&#x0417;" />
+					<input type="button" class="b" onClick="k(event,this)" value="&#x0418;" />
+					<input type="button" class="b" onClick="k(event,this)" value="&#x0419;" />
+					<input type="button" class="b" onClick="k(event,this)" value="&#x041A;" />
+					<input type="button" class="b" onClick="k(event,this)" value="&#x041B;" />
+					<input type="button" class="b" onClick="k(event,this)" value="&#x041C;" />
+					<input type="button" class="b" onClick="k(event,this)" value="&#x041D;" />
+					<input type="button" class="b" onClick="k(event,this)" value="&#x041E;" />
+					<input type="button" class="b" onClick="k(event,this)" value="&#x041F;" />
+					<input type="button" class="b" onClick="k(event,this)" value="&#x0420;" />
+					<input type="button" class="b" onClick="k(event,this)" value="&#x0421;" />
+					<input type="button" class="b" onClick="k(event,this)" value="&#x0422;" />
+					<input type="button" class="b" onClick="k(event,this)" value="&#x0423;" />
+					<input type="button" class="b" onClick="k(event,this)" value="&#x040E;" />
+					<input type="button" class="b" onClick="k(event,this)" value="&#x0424;" />
+					<input type="button" class="b" onClick="k(event,this)" value="&#x0425;" />
+					<input type="button" class="b" onClick="k(event,this)" value="&#x040B;" />
+					<input type="button" class="b" onClick="k(event,this)" value="&#x0426;" />
+					<input type="button" class="b" onClick="k(event,this)" value="&#x0427;" />
+					<input type="button" class="b" onClick="k(event,this)" value="&#x040f;" />
+					<input type="button" class="b" onClick="k(event,this)" value="&#x0428;" />
+					<input type="button" class="b" onClick="k(event,this)" value="&#x0429;" />
+					<input type="button" class="b" onClick="k(event,this)" value="&#x042A;" />
+					<input type="button" class="b" onClick="k(event,this)" value="&#x042B;" />
+					<input type="button" class="b" onClick="k(event,this)" value="&#x042C;" />
+					<input type="button" class="b" onClick="k(event,this)" value="&#x042D;" />
+					<input type="button" class="b" onClick="k(event,this)" value="&#x042E;" />
+					<input type="button" class="b" onClick="k(event,this)" value="&#x042F;" />
+
+					<input style="background:pink" type="button" class="b" onClick="k(event,this)" value="&#x0430;" />
+					<input type="button" class="b" onClick="k(event,this)" value="&#x0431;" />
+					<input type="button" class="b" onClick="k(event,this)" value="&#x0432;" />
+					<input type="button" class="b" onClick="k(event,this)" value="&#x0433;" />
+					<input type="button" class="b" onClick="k(event,this)" value="&#x0434;" />
+					<input type="button" class="b" onClick="k(event,this)" value="&#x0435;" />
+					<input type="button" class="b" onClick="k(event,this)" value="&#x0451;" />
+					<input type="button" class="b" onClick="k(event,this)" value="&#x0436;" />
+					<input type="button" class="b" onClick="k(event,this)" value="&#x0437;" />
+					<input type="button" class="b" onClick="k(event,this)" value="&#x0438;" />
+					<input type="button" class="b" onClick="k(event,this)" value="&#x0439;" />
+					<input type="button" class="b" onClick="k(event,this)" value="&#x043A;" />
+					<input type="button" class="b" onClick="k(event,this)" value="&#x043B;" />
+					<input type="button" class="b" onClick="k(event,this)" value="&#x043C;" />
+					<input type="button" class="b" onClick="k(event,this)" value="&#x043D;" />
+					<input type="button" class="b" onClick="k(event,this)" value="&#x043E;" />
+					<input type="button" class="b" onClick="k(event,this)" value="&#x043F;" />
+					<input type="button" class="b" onClick="k(event,this)" value="&#x0440;" />
+					<input type="button" class="b" onClick="k(event,this)" value="&#x0441;" />
+					<input type="button" class="b" onClick="k(event,this)" value="&#x0442;" />
+					<input type="button" class="b" onClick="k(event,this)" value="&#x0443;" />
+					<input type="button" class="b" onClick="k(event,this)" value="&#x045E;" />
+					<input type="button" class="b" onClick="k(event,this)" value="&#x0444;" />
+					<input type="button" class="b" onClick="k(event,this)" value="&#x045B;" />
+					<input type="button" class="b" onClick="k(event,this)" value="&#x0445;" />
+					<input type="button" class="b" onClick="k(event,this)" value="&#x0446;" />
+					<input type="button" class="b" onClick="k(event,this)" value="&#x0447;" />
+					<input type="button" class="b" onClick="k(event,this)" value="&#x045F;" />
+					<input type="button" class="b" onClick="k(event,this)" value="&#x0448;" />
+					<input type="button" class="b" onClick="k(event,this)" value="&#x0449;" />
+					<input type="button" class="b" onClick="k(event,this)" value="&#x044A;" />
+					<input type="button" class="b" onClick="k(event,this)" value="&#x044B;" />
+					<input type="button" class="b" onClick="k(event,this)" value="&#x044C;" />
+					<input type="button" class="b" onClick="k(event,this)" value="&#x044D;" />
+					<input type="button" class="b" onClick="k(event,this)" value="&#x044E;" />
+					<input type="button" class="b" onClick="k(event,this)" value="&#x044F;" />
+
+					<br />
+				<input style="background:white" type="button" class="b" onClick="k(event,this)" value="0" />
+				<input style="background:white" type="button" class="b" onClick="k(event,this)" value="1" />
+				<input style="background:white" type="button" class="b" onClick="k(event,this)" value="2" />
+				<input style="background:white" type="button" class="b" onClick="k(event,this)" value="3" />
+				<input style="background:white" type="button" class="b" onClick="k(event,this)" value="4" />
+				<input style="background:white" type="button" class="b" onClick="k(event,this)" value="5" />
+				<input style="background:white" type="button" class="b" onClick="k(event,this)" value="6" />
+				<input style="background:white" type="button" class="b" onClick="k(event,this)" value="7" />
+				<input style="background:white" type="button" class="b" onClick="k(event,this)" value="8" />
+				<input style="background:white" type="button" class="b" onClick="k(event,this)" value="9" />
+				<input style="background:white" type="button" class="b" onClick="k(event,this)" value="," />
+				<input style="background:white" type="button" class="b" onClick="k(event,this)" value="-" />
+				<input style="background:white" type="button" class="b" onClick="k(event,this)" value="+" />
+				<input style="background:white" type="button" class="b" onClick="k(event,this)" value="." />
+				<input style="background:white" type="button" class="b" onClick="k(event,this)" value="/" />
+				<input style="background:white" type="button" class="b" onClick="k(event,this)" value=" " />
+				<input style="background:white" type="button" class="b" onClick="k(event,this)" value="&#xA1;" />
+				<input style="background:white" type="button" class="b" onClick="k(event,this)" value="!" />
+				<input style="background:white" type="button" class="b" onClick="k(event,this)" value="&#xBF;" />
+				<input style="background:white" type="button" class="b" onClick="k(event,this)" value="?" />
+				<input style="background:white" type="button" class="b" onClick="k(event,this)" value="&#xAB;" />
+				<input style="background:white" type="button" class="b" onClick="k(event,this)" value="&#xBB;" />
+				<input style="background:white" type="button" class="b" onClick="k(event,this)" value="¢" />
+				<input style="background:white" type="button" class="b" onClick="k(event,this)" value="$" />
+				<input style="background:white" type="button" class="b" onClick="k(event,this)" value="€" />
+				<input style="background:white" type="button" class="b" onClick="k(event,this)" value="£" />
+				<input style="background:white" type="button" class="b" onClick="k(event,this)" value="&#x20B9;" />
+				<input style="background:white" type="button" class="b" onClick="k(event,this)" value="¥" />
+				<input style="background:white" type="button" class="b" onClick="k(event,this)" value="₱" />
+				<input style="background:white" type="button" class="b" onClick="k(event,this)" value="%" />				
+				<input style="background:white" type="button" class="b" onClick="k(event,this)" value="ʻ" />
+				<input style="background:white" type="button" class="b" onClick="k(event,this)" value="ʼ" />
+				<input type="button" class="b" onClick="k(event,this)" value=" " />					
+				<input type="button" class="b" onClick="k(event,this)" value="&#13;" />					
+			</td>
+		</tr>
+		<tr>
+			<td colspan="3" style="text-align:center">
+				<input accesskey="m" style="width:10em; color:red; background:white" type="button" value="&#x2718;" onclick="window.arguments[0].res=''; window.close();" />
+				<input style="width:3em; color:gray; background:white" type="button" value="C" onclick="document.getElementById('tt').value='';" />
+				<input accesskey="b" style="width:10em; color:green; background:white" type="button" value="&#x2714;" onclick="window.arguments[0].res=document.getElementById('tt').value; window.close();" />
+			</td>
+		</tr>
+	</table>
+
+</center>
+</body>
+</html>

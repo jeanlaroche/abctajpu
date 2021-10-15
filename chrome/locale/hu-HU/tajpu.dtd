@@ -1,0 +1,18 @@
+<!ENTITY opcioj.registri "Mentés">
+<!ENTITY opcioj.nuligi "Mégse">
+<!ENTITY opcioj.enmeti "BESZÚRÁS">
+<!ENTITY opcioj.helpo "További informácioórt nézd meg">
+<!ENTITY opcioj.unu "Nyelvek, amik meg fognak jelenni egy beviteli mező környezeti menüjének abcTajpu-almenüjében">
+<!ENTITY opcioj.du "Válszd ki, melyik gyorsbillentyűk raknak hajtott ékezetet az utoljára begépelt karakterre (pl. alt-F7)">
+<!ENTITY opcioj.tri "Felhasználó által meghatározott makrók (név=érték|... amiben &#x25;u#### egy unicode karaktert jelent)">
+<!ENTITY opcioj.kvar "Válassz egy gyorsbillentyűt a control-shift-alt-insert-mellé, amivel egy makrót tudsz majd bőcvíteni">
+<!ENTITY opcioj.kvar.helpeto "Például ha az [BESZÚRÁS] billentyű a fő gyorsbillentyű, akkor az e ' [BESZÚRÁS] sorozat egy &quot;é&quot;-t ír ki.">
+<!ENTITY menuo.klavaro "Billentyűzet">
+<!ENTITY menuo.opcioj "Beállítások">
+<!ENTITY menuo.helpo "Súgó">
+<!ENTITY alirklavo.klavaro "B">
+<!ENTITY alirklavo.opcioj "O">
+<!ENTITY alirklavo.helpo "S">
+<!ENTITY pri.akcepti "OK">
+<!ENTITY pri.p "Az Európai Eszperantó Unió (European Esperanto Union) projektje a nyelvi sokféleség és egyenlőség fenttartására.">
+<!ENTITY pri.s "Az Európai Nyelvi Nap támogatásában.">

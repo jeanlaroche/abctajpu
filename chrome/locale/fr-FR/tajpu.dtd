@@ -1,0 +1,18 @@
+<!ENTITY opcioj.registri "Enregistrer">
+<!ENTITY opcioj.nuligi "Annuler">
+<!ENTITY opcioj.enmeti "Inser">
+<!ENTITY opcioj.helpo "Pour plus d&apos;informations, allez sur">
+<!ENTITY opcioj.unu "Langues à faire apparaître dans le menu contextuel de tout champ de saisie, près du menu générique d&apos;abcTajpu">
+<!ENTITY opcioj.du "Raccourcis clavier à activer, par exemple Alt+F7 pour ajouter un accent circonflexe à la dernière lettre tapée">
+<!ENTITY opcioj.tri "Macros pouvant être utilisées, de type nom=valeur|, où tout &#37;u#### désigne la norme Unicode">
+<!ENTITY opcioj.kvar "Choisissez un raccourci-clavier, en plus de Ctrl, Maj, Alt, Inser, pour étendre une macro">
+<!ENTITY opcioj.kvar.helpeto "Par exemple, avec Inser comme raccourci, le trio « e &apos; Inser » donnera « é », et « s m Inser » donnera « saluton mondo ».">
+<!ENTITY menuo.klavaro "Clavier">
+<!ENTITY menuo.opcioj "Options">
+<!ENTITY menuo.helpo "Aide">
+<!ENTITY alirklavo.klavaro "C">
+<!ENTITY alirklavo.opcioj "O">
+<!ENTITY alirklavo.helpo "A">
+<!ENTITY pri.akcepti "OK">
+<!ENTITY pri.p "Projet de l&apos;Union européenne de l&apos;Esp&#233;ranto, afin d&apos;aider égalité et diversité autour des langues vivantes.">
+<!ENTITY pri.s "Avec le support de la Journée européenne des langues">

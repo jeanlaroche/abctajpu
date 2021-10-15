@@ -1,0 +1,18 @@
+<!ENTITY opcioj.registri "OK">
+<!ENTITY opcioj.nuligi "Annulla">
+<!ENTITY opcioj.enmeti "Invio">
+<!ENTITY opcioj.helpo "Visita il sito web">
+<!ENTITY opcioj.unu "Lingue da includere nel menu contestuale che si visualizza con clic con tasto destro del mouse nei campi di testo">
+<!ENTITY opcioj.du "Combinazioni da tastiera da attivare. Es: tramite alt+F7 si aggiunge un accento circonflesso al carattere precedentemente digitato">
+<!ENTITY opcioj.tri "Macro definite dall'utente in cui il nome corrisponde al valore |... e dove ogni &#x25;u#### corrisponde a codice Unicode">
+<!ENTITY opcioj.kvar "Combinazioni da tastiera da selezionare, oltre a Ctrl/Maiusc/Alt/Ins, per espandere le macro">
+<!ENTITY opcioj.kvar.helpeto "Esempio: al tasto della tastiera Invio corrisponde é, premendo le lettere iniziali ms si otterrà 'saluton mondo'">
+<!ENTITY menuo.klavaro "Tastiera">
+<!ENTITY menuo.opcioj "Opzioni">
+<!ENTITY menuo.helpo "Sito web">
+<!ENTITY alirklavo.klavaro "T">
+<!ENTITY alirklavo.opcioj "O">
+<!ENTITY alirklavo.helpo "w">
+<!ENTITY pri.akcepti "OK">
+<!ENTITY pri.p "Progetto dell'unione europea dell'esperanto per il rispetto delle diversità fra le lingue.">
+<!ENTITY pri.s "In supporto al giorno europeo delle lingue (European Language Day).">

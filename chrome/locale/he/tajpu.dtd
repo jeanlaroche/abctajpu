@@ -1,0 +1,18 @@
+<!ENTITY opcioj.registri "שמור">
+<!ENTITY opcioj.nuligi "ביטול">
+<!ENTITY opcioj.enmeti "הכנס">
+<!ENTITY opcioj.helpo "למידע נוסף בקר ב־">
+<!ENTITY opcioj.unu "לשפות שיופיעו בהקשר שדה הקלט, לחץ על התפריט המוקפץ לצד פריט התפריט הכללי abcTajpu">
+<!ENTITY opcioj.du "מאפשר מקשי קיצור מיוחדים, לדוגמה alt-F7 שמוסיף גרש לאות שהוקלדה קודם לכן">
+<!ENTITY opcioj.tri "פקודות מאקרו בהגדרת המשתמש, שם=value|... בכל מקום ש־&#37;u#### משמעו ב־Unicode">
+<!ENTITY opcioj.kvar "מבחר של מקשי קיצור כללי, בנוסף למקשי פקודה כמו control-shift-alt-insert, על מנת להרחיב את סדרת הפקודות במאקרו">
+<!ENTITY opcioj.kvar.helpeto "לדוגמה, אם מקש הקיצור הכללי הוא INSERT, אז e ' INSERT נותן é, ו־s m INSERT נותן saluton mondo.">
+<!ENTITY menuo.klavaro "מקלדת">
+<!ENTITY menuo.opcioj "אפשרויות">
+<!ENTITY menuo.helpo "עזרה">
+<!ENTITY alirklavo.klavaro "ת">
+<!ENTITY alirklavo.opcioj "ת">
+<!ENTITY alirklavo.helpo "ה">
+<!ENTITY pri.akcepti "אישור">
+<!ENTITY pri.p "תוכנית איחוד אספרנטו האירופאי לסיוע בגיוון ושוויון השפה.">
+<!ENTITY pri.s "בתמיכה של יום השפה האירופאי.">

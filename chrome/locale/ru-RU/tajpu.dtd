@@ -1,0 +1,18 @@
+<!ENTITY opcioj.registri "Сохранить">
+<!ENTITY opcioj.nuligi "Отмена">
+<!ENTITY opcioj.enmeti "INSERT">
+<!ENTITY opcioj.helpo "Более подробная информация на сайте">
+<!ENTITY opcioj.unu "Языки, которые будут показаны в контекстном меню адресной строки помимо обычных пунктов меню abcTajpu">
+<!ENTITY opcioj.du "Специальные сочетания клавиш. Alt-F7, например, добавляет циркумфлекс к предыдущей набранной букве">
+<!ENTITY opcioj.tri "Пользовательские макросы (имя=значение|... где последовательности &#x25;u#### соответствуют символам Unicode)">
+<!ENTITY opcioj.kvar "Выберите основную клавишу, которая будет преобразовывать макрос в дополнение к Ctrl-Shift-Alt-INSERT.">
+<!ENTITY opcioj.kvar.helpeto "Например, если основная клавиша - это INSERT, то e' INSERT даст é.">
+<!ENTITY menuo.klavaro "Клавиатура">
+<!ENTITY menuo.opcioj "Настройки">
+<!ENTITY menuo.helpo "Справка">
+<!ENTITY alirklavo.klavaro "К">
+<!ENTITY alirklavo.opcioj "Н">
+<!ENTITY alirklavo.helpo "С">
+<!ENTITY pri.akcepti "OK">
+<!ENTITY pri.p "Проект Европейского союза эсперанто для поддержки языкового разнообразия и равенства">
+<!ENTITY pri.s "В поддержку Европейского дня языка">
